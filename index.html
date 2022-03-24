@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai Calculator</title>
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        color: teal;
+      }
+      #calculator{
+        height:500px;
+        width:400px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin:auto;
+        margin-top:10px;
+        border-radius: 20px;
+        padding-top:10px;
+      }
+      #input{
+        height:15%;
+        width:80%;
+        margin:auto;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-top: 20px;
+      }
+      #keyboard{
+        width:80%;
+        height:70%;
+        display: grid;
+        gap: 10px;
+        grid-template-columns:repeat(4,1fr);
+        margin-top:10px;
+        margin:auto;
+        padding-top:30px;
+        border-radius: 20px;
+      }
+      #keyboard>div{
+        display:grid;
+        justify-content: center;
+        align-content:center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        font-size:30px;
+        font-weight: bold;
+        border-radius: 20px;
+      }
+      #keyboard>div:hover{
+        background-color: teal;
+      }
+      .red{
+        background-color: red;
+        color:white;
+      }
+      .black{
+        background-color: black;
+        color:white;
+      }
+      #keyboard>div:nth-child(4n):hover{
+        background-color: white;
+        color:red;
+      }
+      #keyboard>div:nth-child(15):hover{
+        background-color: white;
+        color:red;
+      }
+      #keyboard>div:nth-child(13):hover{
+        background-color: white;
+        color:red;
+      }
+      #input{
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+
+      /* use grid to acheive the layout */
+    </style>
+  </head>
+  <body>
+    <h1>Masai Calculator</h1>
+    <div id="calculator">
+      <div id="input"></div>
+      <div id="keyboard">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="black">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="black">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="black">x</div>
+        <div class="red">C</div>
+        <div>0</div>
+        <div class="black">=</div>
+        <div class="black">/</div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var nums = document.querySelectorAll("#keyboard>div");
+  var bag = document.querySelector("#input");
+  for(var i=0;i<nums.length;i++){
+    nums[i].addEventListener("click",myCalculator);
+    function myCalculator(){
+      var targetnumber = event.target.innerText;
+      switch (targetnumber){
+        case "C" : bag.innerText="";
+        break;
+        case "=" : bag.innerText=eval(input.innerText);
+        break;
+        default : bag.innerText = bag.innerText+targetnumber;
+      }
+    }
+  }
+</script>
